@@ -2,23 +2,18 @@
 repo_update: true
 repo_upgrade: all
 
-# Required packages
+# Required packages assuming Ubuntu/Debian
 packages:
+  - build-essential
   - autoconf
   - automake
-  - make
-  - gcc-c++
-  - pcre-devel
-  - zlib-devel
-  - libmemcached-devel
-  - libevent
-  - libevent-devel
-  - openssl-devel
+  - libpcre3-dev
+  - libevent-dev
+  - pkg-config
+  - zlib1g-dev
+  - libssl-dev
   - git
 
 # Commands to run
 runcmd:
   - "git clone https://github.com/RedisLabs/memtier_benchmark && (cd memtier_benchmark; autoreconf -iv && ./configure && make install) && rm -rf memtier_benchmark"
-
-  
-

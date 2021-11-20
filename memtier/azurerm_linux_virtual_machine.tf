@@ -1,9 +1,10 @@
 resource "azurerm_linux_virtual_machine" "redisgeek" {
-  name                = format("redisgeek%s", random_string.resource_group_name.result)
-  resource_group_name = azurerm_resource_group.redisgeek.name
-  location            = var.location
-  size                = "Standard_F2"
+  name                = format("memtier-vm-%s", var.random_id)
+  resource_group_name = data.azurerm_resource_group.redisgeek.name
+  location            = data.azurerm_resource_group.redisgeek.location
+  size                = "Standard_D48ds_v4"
   admin_username      = "adminuser"
+  custom_data         = data.template_cloudinit_config.cloud_init.rendered
   network_interface_ids = [
     azurerm_network_interface.redisgeek.id,
   ]
@@ -24,4 +25,5 @@ resource "azurerm_linux_virtual_machine" "redisgeek" {
     sku       = "18.04-LTS"
     version   = "latest"
   }
+  tags = data.azurerm_resource_group.redisgeek.tags
 }

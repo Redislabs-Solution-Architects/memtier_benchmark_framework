@@ -1,8 +1,8 @@
 resource "azurerm_virtual_network" "redisgeek" {
-  name                = format("redisgeek-%s", random_string.vnet_name.result)
-  depends_on          = [azurerm_resource_group.redisgeek]
-  resource_group_name = azurerm_resource_group.redisgeek.name
+  name                = format("memtier-vnet-%s", var.random_id)
+  depends_on          = [data.azurerm_resource_group.redisgeek]
+  resource_group_name = data.azurerm_resource_group.redisgeek.name
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.redisgeek.location
-  tags                = merge(var.tags, { owner = data.azurerm_client_config.current.client_id })
+  location            = data.azurerm_resource_group.redisgeek.location
+  tags                = data.azurerm_resource_group.redisgeek.tags
 }
