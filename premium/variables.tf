@@ -1,13 +1,9 @@
-variable "resource_group" {
-  type        = string
-  description = "The resource group"
-  default     = ""
+variable "random_id" {
+  type = string
 }
 
-variable "location" {
-  type        = string
-  description = "The Azure region where all resources in this example should be created"
-  default     = "centralindia"
+variable "resource_group" {
+  type = string
 }
 
 variable "sku_tier" {

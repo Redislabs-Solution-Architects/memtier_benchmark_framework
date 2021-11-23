@@ -1,7 +1,7 @@
 resource "azurerm_redis_cache" "redis" {
-  name                = format("redisgeek%s", random_string.resource_group_name.result)
-  resource_group_name = azurerm_resource_group.resource_group.name
-  location            = azurerm_resource_group.resource_group.location
+  name                = format("acrp-%s", var.random_id)
+  resource_group_name = data.azurerm_resource_group.redisgeek.name
+  location            = data.azurerm_resource_group.redisgeek.location
   capacity            = 4
   family              = "P"
   sku_name            = var.sku_tier
