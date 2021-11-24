@@ -1,6 +1,6 @@
 locals {
-  host    = azurerm_linux_virtual_machine.redisgeek.public_ip_address
-  user    = "adminuser"
+  host    = aws_instance.memtier.public_ip
+  user    = "ec2-user"
   program = "/usr/local/bin/memtier_benchmark"
 }
 
