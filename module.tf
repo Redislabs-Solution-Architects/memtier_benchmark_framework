@@ -1,7 +1,6 @@
 module "ec2-memtier" {
   source            = "./ec2-memtier"
   security_group_id = module.elasticache.sg
-  ssh_key_name      = module.elasticache.key
 }
 
 module "elasticache" {

@@ -13,7 +13,6 @@ locals {
     host       = module.elasticache.ec.hostname
     port       = module.elasticache.ec.port
     access_key = module.elasticache.ec.access_key
-    pem        = module.elasticache.pem
   }
   ec2-memtier = {
     user    = module.ec2-memtier.user

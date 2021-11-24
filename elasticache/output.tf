@@ -10,14 +10,6 @@ output "sg" {
   value = aws_security_group.redisgeek.id
 }
 
-output "key" {
-  value = aws_key_pair.generated_key.key_name
-}
-
-output "pem" {
-  value = tls_private_key.example.private_key_pem
-}
-
 output "ec" {
   value = local.ec
 }
