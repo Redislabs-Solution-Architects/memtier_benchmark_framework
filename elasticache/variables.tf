@@ -1,6 +1,5 @@
 variable "aws_region" {
   description = "Region into which to deploy the EC2 instance"
-  default     = "ap-south-1"
 }
 
 variable "elasticache_node_type" {
