@@ -1,14 +1,15 @@
 # memtier_benchmark_burn_in
 
-- Elasticache Recent Max = 280,000 ops/sec
-- P5@4 with 10 shards ~ ?
-- E100@10 ~ 1,000,000 ops/sec (estimated)
-- F1500@9 ~   360,000 ops/sec (estimated)
+## Deploy 4 similarly provisioned clusters
 
-# Deploy 4 similarly provisioned clusters
+- Elasticache
+- Azure Cache for Redis Premium
+- Azure Cache for Redis Enterprise
+- Azure Cache for Redis Enterprise on Flash
 
 ## Run Memtier Benchmark across all 4
-Exact same test across all 4 clusters
-(output to files)
+
+48 core VM
+4 connections per thread x 12 threads = 48
 
 ### Compare Results
